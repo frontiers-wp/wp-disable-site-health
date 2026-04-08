@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name: WP Disable Site Health
- * Plugin URI: https://www.bekamhealing.com
+ * Plugin URI: https://github.com/frontiers-wp/wp-disable-site-health
  * Description: Disables WordPress Site Health features by removing the admin menu and blocking direct access.
  * Author: Edwin Bekedam
- * Author URI: https://www.bekamhealing.com/
+ * Author URI: https://github.com/frontiers-wp/wp-disable-site-health
  * Version: 1.0.0
  * License: GPL-2.0+
  */
