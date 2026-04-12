@@ -5,9 +5,11 @@
  * Description: Disables WordPress Site Health features by removing the admin menu and blocking direct access.
  * Author: Edwin Bekedam
  * Author URI: https://github.com/frontiers-wp/wp-disable-site-health
+ * Donate link: https://paypal.me/EBekedam
  * Version: 1.0.0
  * License: GPL-2.0+
  */
+
 
 // Exit if accessed directly.
 if (!defined('ABSPATH')) {
