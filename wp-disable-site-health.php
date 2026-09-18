@@ -5,14 +5,13 @@
  * Description: Disables WordPress Site Health features by removing the admin menu and blocking direct access.
  * Author: Edwin Bekedam
  * Author URI: https://github.com/frontiers-wp/wp-disable-site-health
- * Donate link: https://paypal.me/EBekedam
  * Version: 1.0.0
+ * Requires PHP: 8.1
  * License: GPL-2.0+
  */
 
-
 // Exit if accessed directly.
-if (!defined('ABSPATH')) {
+if (!\defined('ABSPATH')) {
     exit;
 }
 
@@ -20,7 +19,7 @@ if (!defined('ABSPATH')) {
  * Removes the Site Health submenu from the Tools menu.
  */
 add_action('admin_menu', 'escode_remove_site_health_menu');
-function escode_remove_site_health_menu() {
+function escode_remove_site_health_menu(): void {
     remove_submenu_page('tools.php', 'site-health.php');
 }
 
@@ -28,14 +27,15 @@ function escode_remove_site_health_menu() {
  * Blocks direct access to the Site Health page by redirecting to the admin dashboard.
  */
 add_action('current_screen', 'escode_block_site_health_access');
-function escode_block_site_health_access() {
+function escode_block_site_health_access(): void {
     if (is_admin()) {
         $screen = get_current_screen();
 
         // Redirect if current screen is Site Health
-        if ('site-health' === $screen->id) {
+        if ($screen instanceof \WP_Screen && 'site-health' === $screen->id) {
             wp_safe_redirect(admin_url());
             exit;
         }
     }
 }
+
